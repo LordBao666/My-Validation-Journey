@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <groupId>com.lordbao</groupId>
+    <artifactId>Validation-NotIn-SpringBoot</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <dependencies>
+        <!-- Hibernate 校验, 它是对Java 参数校验规范的实现
+             Hibernate 集成了 Java 参数校验规范的API,因此
+             无需再引入此规范
+               -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>8.0.1.Final</version>
+        </dependency>
+
+
+        <!-- el规范和tomcat的实现
+        message中的表达式应当满足EL规范,所以需要导入实现了EL规范的依赖      -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-el</artifactId>
+            <version>10.1.26</version>
+        </dependency>
+
+
+        <!--  lombok      -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+            <!--
+                provided 表示该依赖仅在 编译和测试阶段使用
+                在编译阶段需要将Lombok相关注解转为对应的代码(比如@Setter生成相关的set方法)
+                但在运行阶段却不需要该依赖.
+                类似 scope设置为provided还有ServletAPI,因为相关依赖已经在容器中提供了.
+             -->
+            <scope>provided</scope>
+        </dependency>
+
+
+        <!-- junit测试-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+
+
+    </dependencies>
+
+</project>
